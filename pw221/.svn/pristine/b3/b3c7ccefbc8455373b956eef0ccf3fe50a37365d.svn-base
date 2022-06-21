@@ -1,0 +1,36 @@
+Korrektur Übungsblatt 4
+=======================
+
+
+Aufgabe 1
+---------
+living - Logik sollte in der updateState stehen.
+In der showState soll nur gezeichnet werden (-1)
+
+Unnötiges überschreiben bei der Pointer-Benutzung sowie Verwendung der
+ursprünglichen Felder statt Benutzung über die Pointer (-2)
+Siehe Musterlösung.
+
+Gerne Tests für die Logik-Funktionen.
+12/15
+
+
+Aufgabe 2
+---------
+Sehr gut.
+5/5
+
+
+Gesamtpunktzahl
+---------------
+17/20
+
+
+Gute Abgabe.
+Schaue dir noch einmal an wie die Pointer funktionieren und dann sieht es sehr
+gut aus.
+Danke für dein Feedback.
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

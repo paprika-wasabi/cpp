@@ -1,0 +1,21 @@
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 21.06.22.
+//
+
+copy time with bubble sort: 6.107802 seconds
+move time with bubble sort: 2.657283 seconds
+
+Ich habe input.txt von AlgoDat Vorlesung aufgenohmen, um Benchmark zu implementieren.
+Bei der Copy method dauert ja langer als move.
+Copy method copiert jede bit dann ersetzt es in andere Memory-Location.
+Move method hat nur sich pointer in andere Memory-Location gezeigt.
+Die Inhalt ändert sich nicht sondern nur das Pointer.
+Und Die Inhalt die wir gemoved haben, ist Temporär Inhalt.
+Das macht Move Method ganz schnell.
+
+Problem:
+wenn ich mit dem quick sort aufrufe und gebe 10,000 Elements ein.
+Program terminiert sich nicht. passiert nur mit QuickSort implementation.
+aber mit 1000 Elents läuft es fehler frei durch.

@@ -1,0 +1,48 @@
+Korrektur Übungsblatt 3
+=======================
+
+
+Bitte denke bei der CopyRight-Notice an den Code-Snippet part.
+VL 2, Folie 7.
+
+
+Aufgabe 1
+---------
+Schlange wächst, statt gleich ganz gezeichnet zu werden, was etwas unschön ist.
+Ansonsten sehr gute Abgabe.
+
+else mit nur continue ist nicht nötig.
+Schlange wächst erst, statt gleich ganz gezeichnet zu werden.
+10/10
+
+
+Aufgabe 2
+---------
+Wunderbar.
+5/5
+
+
+Aufgabe 4
+---------
+.PRECIOUS: *.o hinzufügen, damit die .o-Dateien nicht automatisch gelöscht
+werden.
+
+Makefile nicht generisch. Snake-Name wird nicht als Variable gesetzt (oder mit
+Funktionen geholt) (-2)
+
+typo in Headers: * .h statt *.h
+test-Target nicht von test-Binary abhängig.
+(-1)
+2/5
+
+
+Gesamtpunktzahl
+---------------
+17/20
+
+
+Vielen Dank für das Feedback.
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

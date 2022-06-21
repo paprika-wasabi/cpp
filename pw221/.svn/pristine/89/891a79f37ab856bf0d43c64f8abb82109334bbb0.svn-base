@@ -1,0 +1,50 @@
+/* Copyright 2022 */
+//  String.cpp
+//  Clang
+//
+//  Created by Paramie Willmann on 06.06.22.
+//
+#include <ctime>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include "./String.h"
+
+int main() {
+    int n = 0;
+    int elements = 1000;
+    std::ifstream myfile;
+    myfile.open("input1000.txt");
+    std::string myline;
+    printf("create Sorter1 with move method...\n");
+    StringSorter Sorterwithmove(elements);
+    printf("create Sorter1 with copy method...\n");
+    StringSorter Sorterwithcopy(elements);
+    if ( myfile.is_open() ) {
+        for (n = 0; n < elements; n++) {
+            std::getline(myfile, myline);
+            printf("insert:[%d] %s \n", n + 1, myline.c_str());
+            Sorterwithcopy[n] = myline.c_str();
+            Sorterwithmove[n] = myline.c_str();
+        }
+    }
+    clock_t time;
+    clock_t time1;
+    clock_t time2;
+    time = clock();
+    Sorterwithcopy.sortwithcopy();
+    time1 = clock() - time;
+
+    time = clock();
+    Sorterwithmove.sortwithmove();
+    time2 = clock() - time;
+    for (int i = 0; i < elements; i++) {
+        printf("copy: %s is ", Sorterwithcopy[i].c_str());
+        printf("move: %s \n", Sorterwithmove[i].c_str());
+    }
+    printf("copy time: %f seconds\n",
+            static_cast<float>(time1)/ CLOCKS_PER_SEC);
+    printf("move time: %f seconds\n",
+            static_cast<float>(time2)/ CLOCKS_PER_SEC);
+    return 0;
+}

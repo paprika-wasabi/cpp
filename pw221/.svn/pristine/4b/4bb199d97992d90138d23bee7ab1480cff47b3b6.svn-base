@@ -1,0 +1,29 @@
+Korrektur Übungsblatt 6
+=======================
+
+
+Aufgabe 1
+---------
+public, private können auf halbe Höhe eingerückt sein.
+
+Ein constructor muss nur als explicit deklariert werden, falls er genau ein
+Argument hat.
+
+c_str() gibt char* statt const char* zurück. (-1)
+
+Es hätte übrigens auch ein sehr einfacher Sortieralgorithmus gereicht.
+(Steht auch in den Tests).
+19/20
+
+
+Gesamtpunktzahl
+---------------
+19/20
+
+
+Sehr gute Abgabe!
+Ja, strcmp stand soweit ich weiß falsch erklärt. Das tut mir leid.
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

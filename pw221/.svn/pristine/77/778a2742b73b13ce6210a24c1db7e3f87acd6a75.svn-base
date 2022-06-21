@@ -1,0 +1,33 @@
+Korrektur Übungsblatt 5
+=======================
+
+
+Aufgabe 1
+---------
+Keine Tests (-3)
+Sonst sehr gute Abgabe.
+
+GameOfLife.cpp:34
+Der Destructor muss nicht aufgerufen werden. Dieser wird automatisch aufgerufen,
+wenn das Objekt "out of scope" geht. Das passiert eine Zeile später mit der
+schließenden Klammer.
+Wenn diese Erklärung nicht reicht, schreibe mir gerne.
+12/15
+
+
+Aufgabe 2
+---------
+Keine Makefile-Funktionen, die die Dateinamem ersetzen (-3)
+
+.PRECIOUS: %.o fehlt. Somit werden .o-Dateien automatisch entfernt und müssen
+unnötigerweise neu kompiliert werden (-1)
+1/5
+
+
+Gesamtpunktzahl
+---------------
+13/20
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

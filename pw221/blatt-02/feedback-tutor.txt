@@ -1,0 +1,57 @@
+Korrektur Übungsblatt 2
+=======================
+
+
+Aufgabe 1
+---------
+Docstring im Header fehlt (-1)
+Header guards entsprechen nicht dem Schema der Vorlesung.
+
+Wieso hast du den zweiten Aufruf von Collatz in der main?
+Dieser wird ohne verbose aufgerufen und die Rückgabe nicht verwendet.
+Somit wird nur gerechnet aber nichts damit gemacht.
+7/8
+
+
+Aufgabe 2
+---------
+test-Target muss von test-Binary abhängen (-2)
+
+.o -Dateien müssen auch von Headern abhängen, siehe Forum:
+https://daphne.informatik.uni-freiburg.de/forum/viewtopic.php?f=1199&t=7211
+
+Main-Binary heißt Collatz statt CollatzMain (-1)
+
+phony und suffix vergessen (-2)
+
+Zur Übersichtlichkeit gerne einen neuen rm-Befehl in einer neuen Zeile für jede
+Datei. Wenn das Makefile richtig funktioniert sind der Collatz- und der
+a.out-remove-Befehl überflüssig.
+
+Das all-Target sollte das erste Target sein.
+
+Checkstyle-Fehler (-1)
+Jenkins zeigt keine an, da der Befehl im Makefile falsch ausgeführt wird.
+Es fehlt ein Leerzeichen zwischen --repository=. und *.cpp.
+2/8
+
+
+Aufgabe 3
+---------
+Sehr gut.
+4/4
+
+
+Gesamtpunktzahl
+---------------
+13/20
+
+Danke für deine erfahrungen.txt.
+Du hast einen Apple-Computer korrekt? Da gab es auf dem Forum mal einen Post,
+der das potentiell lösen konnte:
+https://daphne.informatik.uni-freiburg.de/forum/viewtopic.php?f=1202&t=7153
+Der Fix war, die C++-Version festzusetzen:
+g++ -std=c++11 -o CollatzTest CollatzTest.cpp -lgtest -lpthread
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

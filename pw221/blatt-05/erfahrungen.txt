@@ -1,0 +1,9 @@
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 29.05.22.
+//
+
+die Augabe war nicht so schwierig. 
+mit dieser Aufgabe kann ich klar sehen dass c++ sehr efficient für große Projekt.
+es hat mir ungefeahr 4 Studen gekostet, schwierige Teil ist MouseClick von UserInput.

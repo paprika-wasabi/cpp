@@ -1,0 +1,56 @@
+// Copyright 2022, University of Freiburg,
+// Chair of Algorithms and Data Structures
+// Author: Hannah Bast <bast@cs.uni-freiburg.de>
+
+#include "./GameOfLife.h"
+#include <ncurses.h>
+
+// ___________________________________________________________________________
+bool cells[MAX_SIZE][MAX_SIZE] = { 0 };
+
+// ___________________________________________________________________________
+int row;
+int col;
+
+// ___________________________________________________________________________
+void initTerminal() {
+  initscr();              // Initializiation.
+  cbreak();               // Don't wait for RETURN.
+  noecho();               // Don't echo key presses on screen.
+  curs_set(false);        // Don't show the cursor.
+  nodelay(stdscr, true);  // Don't wait until key pressed.
+  keypad(stdscr, true);   // For KEY_LEFT, KEY_UP, etc.
+
+  mousemask(ALL_MOUSE_EVENTS, NULL);
+  mouseinterval(0);
+}
+
+// ___________________________________________________________________________
+void setCell(int row, int col, bool toggle) {
+  if (row >= 0 && row < MAX_SIZE && col >= 0 && col < MAX_SIZE) {
+    cells[row][col] = toggle ? !cells[row][col] : true;
+  }
+}
+
+// ___________________________________________________________________________
+void putGlider(int row, int col) {
+  int GLIDER_SIZE = 5;
+  int gliderCoords[5][2] = { {0, 2}, {1, 0}, {1, 2}, {2, 1}, {2, 2} };
+  setCell(row, col, false);
+  setCell(row, col, true);
+  for (int i = 0; i < GLIDER_SIZE; ++i) {
+    setCell(row + gliderCoords[i][0], col + gliderCoords[i][1], false);
+  }
+}
+
+// ___________________________________________________________________________
+void showState() {
+  for (int row = 0; row < MAX_SIZE; ++row) {
+    for (int col = 0; col < MAX_SIZE; ++col) {
+      if (cells[row][col]) attron(A_REVERSE);
+      mvprintw(row, col * 2, "  ");
+      if (cells[row][col]) attroff(A_REVERSE);
+    }
+  }
+  refresh();
+}

@@ -1,0 +1,22 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "__node_handle": "cpp",
+        "iostream": "cpp",
+        "__locale": "cpp",
+        "__bit_reference": "cpp",
+        "__mutex_base": "cpp",
+        "any": "cpp",
+        "ios": "cpp",
+        "istream": "cpp",
+        "optional": "cpp",
+        "ostream": "cpp",
+        "sstream": "cpp",
+        "streambuf": "cpp",
+        "string_view": "cpp",
+        "tuple": "cpp",
+        "variant": "cpp",
+        "vector": "cpp"
+    }
+}

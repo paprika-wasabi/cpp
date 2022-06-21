@@ -1,0 +1,29 @@
+.SUFFIXES:
+.PHONY: compile checkstyle clean
+
+compile: SnakeMain SnakeTest
+
+test:
+	./SnakeTest
+
+checkstyle:
+	python3 ../cpplint.py --repository=. *.cpp *.h
+
+SnakeMain.o: SnakeMain.cpp
+	g++ -c SnakeMain.cpp
+
+Snake.o: Snake.cpp
+	g++ -c Snake.cpp
+
+SnakeMain: Snake.o SnakeMain.o
+	$(CXX) -o $@ $^ -lncurses
+
+SnakeTest: SnakeTest.o Snake.o
+	g++ -o SnakeTest Snake.o SnakeTest.o -lgtest -lpthread
+
+SnakeTest.o: SnakeTest.cpp
+	g++ -c SnakeTest.cpp
+
+clean:
+	rm -f *.o
+	rm -f *Main

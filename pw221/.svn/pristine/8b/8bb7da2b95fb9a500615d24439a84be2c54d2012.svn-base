@@ -1,0 +1,34 @@
+//  Copyright 2022
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 01.05.22.
+//
+
+Probleme bei Installierung von GoogleTest in MacOS System. Könnte sein, dass andere MacOs Benutze
+auch die gleiche Proble aufgetreten hat.
+Ich habe ungefaehr 8 bis 9 Studen gebraucht um diese Aufgaben komplett zu machen.
+CollatzTest gibt am meinsten Problem. Ich habe CommandoZeile "wie in der Vorlesung gezeight" eingegeben, damit 
+mein Test_Function durchzuführen. Das funktioniert leider nicht.
+Mit diser CommadoZeile hat alles gut geklappt. "g++ -std=c++11 -o CollatzTest CollatzTest.cpp -lgtest -lpthread"
+Mit make checkstyle bekomme ich Errors wie folgende Text.
+
+"Paramies-MacBook-Pro:blatt-01 paramiewillmann$ make checkstyle
+python3 ../cpplint.py * .cpp
+Skipping input '.cpp': Can't open for reading
+Done processing Collatz.cpp
+Ignoring CollatzMain; not a valid file name (hh, h, hxx, cpp, h++, cxx, c++, cc, c, cu, cuh, hpp)
+Done processing CollatzMain
+CollatzMain.cpp:10:  Do not include .cpp files from other packages  [build/include] [4]
+CollatzMain.cpp:11:  Do not use namespace using-directives.  Use using-declarations instead.  [build/namespaces] [5]
+Done processing CollatzMain.cpp
+Ignoring CollatzTest; not a valid file name (hh, h, hxx, cpp, h++, cxx, c++, cc, c, cu, cuh, hpp)
+Done processing CollatzTest
+CollatzTest.cpp:9:  Do not include .cpp files from other packages  [build/include] [4]
+Done processing CollatzTest.cpp
+Ignoring Makefile; not a valid file name (hh, h, hxx, cpp, h++, cxx, c++, cc, c, cu, cuh, hpp)
+Done processing Makefile
+Ignoring erfahrungen.txt; not a valid file name (hh, h, hxx, cpp, h++, cxx, c++, cc, c, cu, cuh, hpp)
+Done processing erfahrungen.txt
+Total errors found: 3
+make: *** [checkstyle] Error 1"

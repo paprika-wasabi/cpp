@@ -1,0 +1,48 @@
+Korrektur Übungsblatt 1
+=======================
+
+
+Hallo Paramie,
+Ich bin Christoph Janus, dein Tutor. Ich korrigiere dein Abgaben
+dieses Semester. Bei jeglichen Fragen zu den Korrekturen bin
+ich gern unter meiner Mail janusc@cs.uni-freiburg.de erreichbar.
+Bei generellen Fragen zu Vorlesung, Übungsblättern, etc. kann
+gerne ins Forum geschrieben werden.
+
+
+Aufgabe 1
+---------
+Die collatz-Funktion ist nicht so schön, da es Codeduplikation gibt.
+Die Logik ist zwei mal implementiert. Sie sollte nur einmal implementiert
+sein. Die verbose Anweisungen können dann in if-s sein.
+
+Auskommentierter Code sollte vor der Abgabe rausgenommen werden.
+5/5
+
+
+Aufgabe 2
+---------
+Sehr gute Tests.
+5/5
+
+
+Aufgabe 3
+---------
+iostream muss hier nicht included werden, da in dieser Datei nichts davon
+verwendet werden.
+5/5
+
+
+Aufgabe 4
+---------
+Das all-Target fehlt. (-1)
+4/5
+
+
+Gesamtpunktzahl
+---------------
+19/20
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

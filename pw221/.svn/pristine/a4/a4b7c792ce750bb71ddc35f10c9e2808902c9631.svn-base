@@ -1,0 +1,35 @@
+/* Copyright 2022 */
+//  String.h
+//  Clang
+//
+//  Created by Paramie Willmann on 27.05.22.
+//
+
+class String {
+    public:
+        //constructor.
+        explicit String();
+
+        //destructor.
+        ~String();
+
+        // assign a constructor.
+        String& operator=(const char* rhs);
+
+        // copy a constructor.
+        String(const String& other);
+
+        // copy its self.
+        String& operator=(const String& other);
+
+        // return size of string.
+        int size() const;
+
+        // return data of string.
+        char* c_str() const;
+        
+    private:
+        // Initialise the char array
+        char* data_;
+        int size_;
+};

@@ -1,0 +1,30 @@
+.SUFFIXES:
+.PHONY: compile checkstyle clean
+
+# compile: SnakeMain SnakeTest
+
+CXX = g++
+HEADERS = $(wildcard * .h)
+
+compile: Snake.o SnakeMain.o SnakeTest.o
+	$(CXX) -o SnakeMain Snake.o SnakeMain.o -lncurses
+	$(CXX) -o SnakeTest SnakeTest.o
+
+test:
+	./SnakeTest
+
+SnakeTest: Snake.o SnakeTest.o
+	g++ -o SnakeTest Snake.o SnakeTest.o -lgtest -lncurses -lpthread
+
+SnakeTest.o: SnakeTest.cpp $(HEADERS)
+	g++ -c SnakeTest.cpp -lgtest -lncurses -lpthread
+
+checkstyle:
+	python3 ../cpplint.py --repository=. *.cpp *.h
+
+%.o: %.cpp $(HEADERS)
+	$(CXX) -c $<
+
+clean:
+	rm -f *.o
+	rm -f *Main

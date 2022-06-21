@@ -1,0 +1,91 @@
+//  Copyright 2022
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 09.05.22.
+//
+
+Problem liegt noch bei der GoogleTest.
+Am meinem Rechner ist noch nicht fehlerfrei durchgelaufen. aber mit dem Jenkins ist fehlerfrei durchgelaufen.
+ich habe mein Logik von CollatzFunktion verbessert.
+Diese Aufgabe hat mir ungefaehr 3 Studen gekostet.
+Fehler von google test lookup ?
+
+"In file included from CollatzTest.cpp:8:
+In file included from /usr/local/include/gtest/gtest.h:62:
+In file included from /usr/local/include/gtest/internal/gtest-internal.h:40:
+/usr/local/include/gtest/internal/gtest-port.h:858:12: error: no member named 'make_tuple' in namespace 'std'
+using std::make_tuple;
+      ~~~~~^
+/usr/local/include/gtest/internal/gtest-port.h:859:12: error: no member named 'tuple' in namespace 'std'
+using std::tuple;
+      ~~~~~^
+/usr/local/include/gtest/internal/gtest-port.h:2127:2: error: expected expression
+[[noreturn]] inline void Abort() { abort(); }
+ ^
+/usr/local/include/gtest/internal/gtest-port.h:2127:14: error: expected unqualified-id
+[[noreturn]] inline void Abort() { abort(); }
+             ^
+/usr/local/include/gtest/internal/gtest-port.h:2154:1: error: unknown type name 'constexpr'
+constexpr BiggestInt kMaxBiggestInt = (std::numeric_limits<BiggestInt>::max)();
+^
+/usr/local/include/gtest/internal/gtest-port.h:2154:21: error: expected ';' after top level declarator
+constexpr BiggestInt kMaxBiggestInt = (std::numeric_limits<BiggestInt>::max)();
+                    ^
+In file included from CollatzTest.cpp:8:
+In file included from /usr/local/include/gtest/gtest.h:62:
+In file included from /usr/local/include/gtest/internal/gtest-internal.h:68:
+/usr/local/include/gtest/internal/gtest-type-util.h:161:46: error: a space is required between consecutive right angle brackets (use '> >')
+struct is_proxy_type_list<ProxyTypeList<Ts...>> : std::true_type {};
+                                             ^
+/usr/local/include/gtest/internal/gtest-type-util.h:170:58: error: a space is required between consecutive right angle brackets (use '> >')
+                                          ProxyTypeList<T>>::type;
+                                                         ^
+In file included from CollatzTest.cpp:8:
+In file included from /usr/local/include/gtest/gtest.h:62:
+/usr/local/include/gtest/internal/gtest-internal.h:612:7: error: no member named 'Abort' in namespace 'testing::internal::posix'; did you mean 'abort'?
+      posix::Abort();
+      ^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h:131:7: note: 'abort' declared here
+void     abort(void) __cold __dead2;
+         ^
+In file included from CollatzTest.cpp:8:
+In file included from /usr/local/include/gtest/gtest.h:62:
+/usr/local/include/gtest/internal/gtest-internal.h:792:7: error: no member named 'Abort' in namespace 'testing::internal::posix'; did you mean 'abort'?
+      posix::Abort();
+      ^~~~~~~
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/stdlib.h:131:7: note: 'abort' declared here
+void     abort(void) __cold __dead2;
+         ^
+In file included from CollatzTest.cpp:8:
+In file included from /usr/local/include/gtest/gtest.h:62:
+/usr/local/include/gtest/internal/gtest-internal.h:898:10: error: 'auto' not allowed in function return type
+  static auto CheckDebugString(C*) -> typename std::is_same<
+         ^~~~
+/usr/local/include/gtest/internal/gtest-internal.h:898:35: error: expected ';' at end of declaration list
+  static auto CheckDebugString(C*) -> typename std::is_same<
+                                  ^
+/usr/local/include/gtest/internal/gtest-internal.h:904:10: error: 'auto' not allowed in function return type
+  static auto CheckShortDebugString(C*) -> typename std::is_same<
+         ^~~~
+/usr/local/include/gtest/internal/gtest-internal.h:904:40: error: expected ';' at end of declaration list
+  static auto CheckShortDebugString(C*) -> typename std::is_same<
+                                       ^
+/usr/local/include/gtest/internal/gtest-internal.h:913:10: error: unknown type name 'constexpr'
+  static constexpr bool value =
+         ^
+/usr/local/include/gtest/internal/gtest-internal.h:918:1: error: unknown type name 'constexpr'
+constexpr bool HasDebugStringAndShortDebugString<T>::value;
+^
+/usr/local/include/gtest/internal/gtest-internal.h:1198:43: error: a space is required between consecutive right angle brackets (use '> >')
+struct ElemFromListImpl<IndexSequence<I...>> {
+                                          ^
+/usr/local/include/gtest/internal/gtest-internal.h:1236:59: error: a space is required between consecutive right angle brackets (use '> >')
+struct FlatTupleBase<FlatTuple<T...>, IndexSequence<Idx...>>
+                                                          ^
+/usr/local/include/gtest/internal/gtest-internal.h:1256:3: error: 'auto' not allowed in function return type
+  auto Apply(F&& f) -> decltype(std::forward<F>(f)(this->Get<Idx>()...)) {
+  ^~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+"

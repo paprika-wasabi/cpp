@@ -1,0 +1,98 @@
+/* Copyright 2022 */
+//  StringSorter.cpp
+//  Clang
+//
+//  Created by Paramie Willmann on 06.06.22.
+//
+
+#include <stdio.h>
+
+#include <cstring>
+#include "./String.h"
+
+// ____________________________________________________________________________
+StringSorter::StringSorter(int size) {
+    sizeSorter_ = size;
+    dataSorter_ = new String[sizeSorter_];
+}
+
+// ____________________________________________________________________________
+StringSorter::~StringSorter() {
+    delete[] dataSorter_;
+}
+
+// ____________________________________________________________________________
+String& StringSorter::operator[](size_t i) const {
+    if (i < sizeSorter_) {
+        return dataSorter_[i];
+    } else {
+        return dataSorter_[0];
+    } 
+}
+
+// ____________________________________________________________________________
+size_t StringSorter::size() const {
+    return sizeSorter_;
+}
+
+// ____________________________________________________________________________
+void StringSorter::swap(int l, int r) {
+    String t;
+    t = dataSorter_[r].c_str();
+    dataSorter_[r] = dataSorter_[l];
+    dataSorter_[l] = t;
+}
+
+// ____________________________________________________________________________
+void StringSorter::sort() {
+    // printf("start sorting...\n");
+    quicksort(0, sizeSorter_ - 1);
+}
+
+// ____________________________________________________________________________
+void StringSorter::quicksort(int l, int r) {
+        if (l >= r) {
+            return;
+        }
+        int index = partition(l, r);
+        quicksort(l, index - 1);
+        quicksort(index + 1, r);
+        return;
+    }
+
+// ____________________________________________________________________________
+int StringSorter::partition(int l, int r) {
+    String pivot = dataSorter_[l];
+    int count = 0;
+    for (int i = l + 1; i <= r; i++) {
+        if (strcmp(dataSorter_[i].c_str(), pivot.c_str()) < 0) {
+            count++;
+        }
+    }
+
+    int PivotIndex = l + count;
+    swap(l, PivotIndex);  // NOLINT
+    // printf("i: %d \n", i_);
+    // printf("j: %d \n", j_);
+    while (l < PivotIndex && r > PivotIndex) {
+        while (strcmp(dataSorter_[r].c_str(), pivot.c_str()) > 0) {
+            r--;
+        }
+        while (strcmp(dataSorter_[l].c_str(), pivot.c_str()) < 0) {
+            l++;
+        }
+        if (l < PivotIndex && r > PivotIndex) {
+            swap(l, r);  // NOLINT
+        }
+    }
+    // printf("Finished Partition \n");
+    // for (int i = 0; i < sizeSorter_; i++){
+    //     printf("%s \n", dataSorter_[i].c_str());
+    // }
+    return PivotIndex;
+}
+
+// ____________________________________________________________________________
+void StringSorter::test() {
+    printf("testing");
+}

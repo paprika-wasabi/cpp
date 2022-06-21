@@ -1,0 +1,20 @@
+/* Copyright 2022 */
+//  StringMain.cpp
+//  Clang
+//
+//  Created by Paramie Willmann on 06.06.22.
+//
+#include<iostream>
+#include "./String.h"
+
+// Main function.
+// just a driver code to help for implementing the String class in c++.
+int main() {
+    String a;
+    a = "apple";
+    String b;
+    b = "pie";
+    b = a;
+    printf(b.size() + "\n");
+    printf(b.c_str() + "\n");
+}

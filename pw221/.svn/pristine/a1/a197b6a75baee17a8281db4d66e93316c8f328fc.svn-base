@@ -1,0 +1,11 @@
+compile: 
+	g++ -o CollatzMain CollatzMain.cpp
+	g++ -std=c++11 -o CollatzTest CollatzTest.cpp -lgtest -lpthread
+test: 
+	./CollatzTest
+checkstyle:
+	python3 ../cpplint.py * .cpp
+clean:
+	rm -f CollatzMain CollatzTest
+run:
+	./CollatzMain

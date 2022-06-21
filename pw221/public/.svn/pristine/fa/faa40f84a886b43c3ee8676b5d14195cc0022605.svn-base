@@ -1,0 +1,67 @@
+// Copyright 2022, University of Freiburg,
+// Chair of Algorithms and Data Structures.
+// Author: Hannah Bast <bast@cs.uni-freiburg.de>
+// Author: Johannes Kalmbach <kalmbach@cs.uni-freiburg.de>
+
+#include <cstdio>
+#include <utility>
+#include "./SomeData.h"
+
+// Call by value, because ints are cheap to copy.
+void myPrint(int i) {
+  printf("The printed int is %d\n", i);
+}
+
+class DataAndNumber {
+ private:
+  SomeData data_;
+  int number_;
+ public:
+  // I need a copy of a SomeData object, because we need to store it.
+  // That's why we use call by value.
+  // Directly call the move constructor of data_
+  DataAndNumber(SomeData data, int number)
+    : data_(std::move(data)), number_(number) {}
+};
+
+// Set all the elements in SomeData to the value of the first element.
+void setAllToFirst(SomeData* ptr) {
+  // Give me a reference (NOT A COPY) to the element to which
+  // the pointer points.
+  SomeData& ref = *ptr;
+  if (ref.size() == 0) {
+    return;
+  }
+  for (size_t i = 1; i < ref.size(); ++i) {
+    ref[i] = ref[0];
+  }
+}
+// Set all the elements in SomeData to the value of the first element.
+// Call by reference version.
+// Cpplint doesn't like this, please use a pointer like a bove.
+void setAllToFirstReference(SomeData& ref) { // NOLINT
+  if (ref.size() == 0) {
+    return;
+  }
+  for (size_t i = 1; i < ref.size(); ++i) {
+    ref[i] = ref[0];
+  }
+}
+
+// Call by const reference, big object which we only look at.
+bool isEmpty(const SomeData& data) {
+  return data.size() == 0;
+}
+
+int main() {
+  DataAndNumber(SomeData(100), 42);
+
+  SomeData data(15);
+  data[0] = 'a';
+  setAllToFirst(&data);
+  printf("the 10th element is now %c\n", data[9]);
+
+  data[0] = 'x';
+  setAllToFirstReference(data);
+  printf("the 10th element is now %c\n", data[9]);
+}

@@ -1,0 +1,72 @@
+/* Copyright 2022 */
+//  String.h
+//  Clang
+//
+//  Created by Paramie Willmann on 27.05.22.
+//
+
+#ifndef STRING_H_
+#define STRING_H_
+
+class String {
+    public:
+        //constructor.
+        explicit String();
+
+        //destructor.
+        ~String();
+
+        // assign a constructor.
+        String& operator=(const char* rhs);
+
+        // copy a constructor.
+        String(const String& other);
+
+        // copy its self.
+        String& operator=(const String& other);
+
+        // return size of string.
+        int size() const;
+
+        // return data of string.
+        char* c_str() const;
+
+    private:
+        // Initialise the char array
+        char* data_;
+        int size_;
+};
+
+class StringSorter {
+    public:
+        // constructor
+        StringSorter(int size);
+
+        // destructor
+        ~StringSorter();
+
+        // return size of Sorter.
+        int size() const;
+
+        // operation to get that elemnt at index i.
+        String& operator[](int i);
+
+        // medthod that swap index l and r.
+        void swap(int l, int r);
+
+        // Sort the StringSorter.
+        void sort();
+
+    private:
+        String* dataSorter_;
+        int quicksort(int left, int right);
+        void quicksort_recursive(int left, int right);
+        int sizeSorter_;
+        int i_;
+        int j_;
+        int index_;
+        int left_;
+        int right_;
+};
+
+#endif  // STRING_H_

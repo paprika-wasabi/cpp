@@ -1,0 +1,11 @@
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 16.05.22.
+//
+
+Super Aufgabe !
+und sehr interesante Aufgabe !
+Es hat mehr ungefear 3 - 4 Studen gekostet.
+Im Berechnung von naechte Feld habe ich mit Wrap around Method impletiert.
+einfacher als letzte woche Aufgabe.

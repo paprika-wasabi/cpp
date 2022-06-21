@@ -1,0 +1,17 @@
+//  Copyright 2022
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 16.05.22.
+//
+
+Problem mit dem GoogleTest ist noch aufgetreten. 
+Ich habe das Problem auf dem Forum gepostet.
+Diese Aufgabe hat mir mehr als 8 Studen gekostet.
+Meinsten Teil ist fuer das GoogleTest-fix.
+Diese Aufgabe finde ich schwer bei der Implementierung von moveSnake.
+
+***** 17.05.22 last edited.
+Ich habe die Lösung für GoogleTest von Prof Bast auf dem Forum gesehen.
+Das Problem ist gelöst.
+***** 

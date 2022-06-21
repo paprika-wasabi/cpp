@@ -1,0 +1,13 @@
+//  Copyright 2022
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 01.05.22.
+//
+
+Probleme bei Installierung von GoogleTest in MacOS System. Könnte sein, dass andere MacOs Benutze
+auch die gleiche Proble aufgetreten hat.
+Ich habe ungefaehr 8 bis 9 Studen gebraucht um diese Aufgaben komplett zu machen.
+CollatzTest gibt am meinsten Problem. Ich habe CommandoZeile "wie in der Vorlesung gezeight" eingegeben, damit 
+mein Test_Function durchzuführen. Das funktioniert leider nicht.
+Mit diser CommadoZeile hat alles gut geklappt. "g++ -std=c++11 -o CollatzTest CollatzTest.cpp -lgtest -lpthread"

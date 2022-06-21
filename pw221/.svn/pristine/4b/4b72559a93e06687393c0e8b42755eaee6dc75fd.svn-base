@@ -1,0 +1,18 @@
+/* Copyright 2022 */
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 06.06.22.
+//
+
+sehr schöne Aufgabe jetzt ist mir ganz klar wie pointer eingentlich
+funktioniert.
+Ich habe viele Studen bei der Implementierung von StringSorting Methode gebraucht.
+Ich versuchte mit QuickSort zu implementieren. erste Ergebnis habe ich falsche Ergenis gekriegt.
+Die wurden nicht ganz richtig sortiet. Dann dachte ich, dass mein Algorithmus für Sorting falsch ist.
+Doch ich habe die Funktion von strcmp(str1, str2) falsch verstanden.
+In der Vorlesung wurde gezeigt, dass falls str1 größer als str2 ist. Der Rückgabewert ist 1.
+Das ist aber falsch. Falls str1 größer als str2 ist, bekommt man der Rückgabewert positive Integer.
+Im Gegenteil bekommt man negative Integer als Rückgabewert, falls str1 kleiner als str2 ist.
+Probleme bei Memoryleak habe ich auch begegnet. auch mit Invalid Read of size 1 und Invalid Write of size 1.
+alles wurde gelöst.

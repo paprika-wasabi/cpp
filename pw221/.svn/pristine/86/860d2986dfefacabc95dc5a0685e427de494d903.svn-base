@@ -1,0 +1,14 @@
+//  Copyright 2022
+//  Collatz.h
+//  Clang
+//
+//  Created by Paramie Willmann on 04.05.22.
+//
+
+
+#ifndef BLATT_02_COLLATZ_H_
+#define BLATT_02_COLLATZ_H_
+
+int collatz(int n, int maxIterations, bool verbose);
+
+#endif  // BLATT_02_COLLATZ_H_
