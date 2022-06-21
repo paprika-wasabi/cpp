@@ -17,6 +17,10 @@
         "string_view": "cpp",
         "tuple": "cpp",
         "variant": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "map": "cpp",
+        "string": "cpp"
     }
 }

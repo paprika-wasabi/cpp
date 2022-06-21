@@ -1,8 +1,8 @@
 /* Copyright 2022 */
-//  String.h
+//  Set.h
 //  Clang
 //
-//  Created by Paramie Willmann on 27.05.22.
+//  Created by Paramie Willmann on 22.06.22.
 //
 
 
@@ -12,12 +12,13 @@
 #include <gtest/gtest.h>
 #include <cstdio>
 
-class Set<T> {
+template<class T>
+class Set {
     public:
         // Constructor.
-        Set<T>();
+        Set();
         // Destructor.
-        ~Set<T>();
+        ~Set();
         // Method to insert a element to set.
         insert(T x);
         // Method that erase a given element.
@@ -27,5 +28,6 @@ class Set<T> {
         // return size of set.
         size_t size() const;
     private:
-
+        T* _element;
+        size_t size_;
 }

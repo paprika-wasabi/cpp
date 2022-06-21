@@ -7,7 +7,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 
 # This program built for i386-apple-darwin11.3.0
 
-# Make data base, printed on Wed Jun 22 00:21:15 2022
+# Make data base, printed on Wed Jun 22 00:50:00 2022
 
 # Variables
 
@@ -38,7 +38,7 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/z3/9d2ww8wj3tl5j5fv8_ysw0980000gn/T/vscode-ipc-754d26ff-e69b-4e9e-b622-12e7f696011d.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/z3/9d2ww8wj3tl5j5fv8_ysw0980000gn/T/vscode-ipc-577e6471-4930-4988-8695-d7dbd532de0b.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -70,7 +70,7 @@ HOME = /Users/paramiewillmann
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/paramiewillmann/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = /Users/paramiewillmann/Library/Application Support/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
 LOGNAME = paramiewillmann
 # environment
@@ -104,7 +104,7 @@ TMPDIR = /var/folders/z3/9d2ww8wj3tl5j5fv8_ysw0980000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/paramiewillmann/Library/Application Support/Code/1.67.2-main.sock
+VSCODE_IPC_HOOK = /Users/paramiewillmann/Library/Application Support/Code/1.68.1-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -112,7 +112,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.25349370.25349376
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.27469535.27469541
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -138,7 +138,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3127
+VSCODE_PID = 8987
 # variable set hash-table stats:
 # Load=64/1024=6%, Rehash=0, Collisions=1/85=1%
 
@@ -148,9 +148,9 @@ VSCODE_PID = 3127
 
 # Directories
 
-# . (device 16777220, inode 23452986): 7 files, no impossibilities.
+# . (device 16777220, inode 23452986): 6 files, no impossibilities.
 
-# 7 files, no impossibilities in 1 directories.
+# 6 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -222,7 +222,7 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Wed Jun 22 00:21:15 2022
+# Finished Make data base on Wed Jun 22 00:50:00 2022
 
  
 make: *** No rule to make target `all'.  Stop.
