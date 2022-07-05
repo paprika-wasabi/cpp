@@ -1,0 +1,50 @@
+/* Copyright 2022 */
+//  HeatMap.h
+//  Clang
+//
+//  Created by Paramie Willmann on 30.06.22.
+//
+
+#ifndef HEATMAP_H_
+#define HEATMAP_H_
+
+#include "./TerminalManager.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+
+class HeatMap {
+ private:
+    float max_x;
+    float max_y;
+    float min_x;
+    float min_y;
+    static const int MAX_SIZE_ = 1000;
+    double Map_[MAX_SIZE_][MAX_SIZE_] = {{0}};
+    double (*MapPtr_)[MAX_SIZE_][MAX_SIZE_];
+    class Node {
+      public:
+         ~Node() { delete _coordinate;}
+         std::pair<float, float>* _coordinate;
+         // std::string_view* _names;
+         Node* next_ = nullptr;
+         Node* prev_ = nullptr;
+    };
+    Node* currentNode_;
+    void getMax();
+    void Movetohead();
+    void getMin();
+    int get_x(float first, int width);
+    int get_y(float second, int height, int width);
+ public:
+    // Constructor.
+    HeatMap();
+    // Free allocate Mem.
+    ~HeatMap();
+    // get file name using linked list to store the data.
+    void readPointsFromFile(const std::string& filename);
+    void computeHeatMap();
+    void drawHeatMap(TerminalManager* tm);
+};
+
+#endif  //  HEATMAP_H_

@@ -1,0 +1,20 @@
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 05.07.22.
+//
+
+Ich finde die Aufgabe schwer. Ich habe viel Zeit gekostet.
+Mit computeHeatMap brauche ich mehr als 10 Studen, damit es richtig gerechnet hat. 
+Ich kann leider TestFunction feur computeHeatMap implementieren.
+Da die Dimension von Bildschrim kann viel fach sein. Dann kann ich leider nicht bestimmen,
+ob die vorgegebenen LINES und COLS auch mit andere Bildschrim passen.
+Ehrlich gesagt finde ich perseonlich diese Aufgabe nicht so gut entworfen wurden.
+05.07.22 (7.00 A.M. CEST)
+// ich habe Test für beide Function implementiert. Jetzt Valgrind ist nicht mehr fehler freidurchluafen.
+// das Problem kann in computeHeatMap() liegen. Dort habe ich new pointer erstellen (Map_).
+// aber wenn ich delete Map_ in Contructor fucntion. Bekomme ich free invalid pointer.
+// Eine Bermerkung wenn die Dimension von Bildschrim kleiner als 50 x 50, hat das Program falsch gezeigt.
+// oder zeigt nur Halbe des Land.
+// Mit dem Object TerminalManager macht es schwieriger zum Debugen, 
+// weil man "was gerade passiert" nicht einfach sehen kann.

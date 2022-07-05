@@ -1,0 +1,183 @@
+/* Copyright 2022 */
+//  HeatMap.cpp
+//  Clang
+//
+//  Created by Paramie Willmann on 30.06.22.
+//
+
+#include "./TerminalManager.h"
+#include "./HeatMap.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <string_view>
+#include <cmath>
+#include <unistd.h>
+
+// ____________________________________________________________________________
+HeatMap::HeatMap() {
+    MapPtr_ = &Map_;
+    currentNode_ = new Node;
+    currentNode_->next_ = nullptr;
+    currentNode_->prev_ = nullptr;
+    currentNode_->_coordinate = nullptr;
+}
+
+// ____________________________________________________________________________
+HeatMap::~HeatMap() {
+    Node *temp;
+    // free all nodes.
+    while (currentNode_->next_ != nullptr) {
+        temp = currentNode_;
+        currentNode_ = currentNode_->next_;
+        delete temp;
+    }
+    // free last node.
+    delete currentNode_;
+}
+
+// ____________________________________________________________________________
+void HeatMap::getMax() {
+    while(currentNode_->next_ != nullptr) {
+        if (currentNode_->_coordinate->first > max_x) {
+            max_x = currentNode_->_coordinate->first;
+        }
+        if (currentNode_->_coordinate->second > max_y) {
+            max_y = currentNode_->_coordinate->second;
+        }
+        currentNode_ = currentNode_->next_;
+    }
+}
+
+// ____________________________________________________________________________
+void HeatMap::getMin() {
+    currentNode_ = currentNode_->next_;
+    min_x = currentNode_->_coordinate->first;
+    min_y = currentNode_->_coordinate->second;
+    while(currentNode_->next_ != nullptr) {
+        if (currentNode_->_coordinate->first < min_x) {
+            min_x = currentNode_->_coordinate->first;
+        }
+        if (currentNode_->_coordinate->second < min_y) {
+            min_y = currentNode_->_coordinate->second;
+        }
+        currentNode_ = currentNode_->next_;
+    }
+}
+
+// ____________________________________________________________________________
+int HeatMap::get_x(float first, int width) {
+    double x = fmod((width*(180+first)/360), (width +(width/2)));
+    return x;
+}
+
+// ____________________________________________________________________________
+int HeatMap::get_y(float second, int height, int width) {
+    // height and width are map height and width
+    double PI = 3.14159265359;
+    double latRad = second*PI/180;
+    // get y value
+    double mercN = log(tan((PI/4)+(latRad/2)));
+    double y = (height/2)-(width*mercN/(2*PI));
+    return y;
+}
+
+// ____________________________________________________________________________
+void HeatMap::Movetohead() {
+    while(currentNode_->prev_ != nullptr) {
+        currentNode_ = currentNode_->prev_;
+    }
+}
+
+// ____________________________________________________________________________
+void HeatMap::readPointsFromFile(const std::string& filename){
+    std::ifstream file;
+    file.open(filename);
+    std::string line;
+    while(std::getline(file, line)) {
+        std::string_view lineView = line;
+        size_t pos1 = lineView.find('(');
+        size_t pos2 = lineView.find(' ', pos1 + 1);
+        std::pair<float, float> coordinates;
+        std::string_view fcoor = lineView.substr(pos1 + 1, 9);
+        std::string_view scoor = lineView.substr(pos2 + 1, 9);
+        coordinates.first = std::stod(fcoor.data());
+        coordinates.second = std::stod(scoor.data());
+        Node *prev_head;
+        prev_head = currentNode_;
+        currentNode_ = new Node;
+        currentNode_->_coordinate = new std::pair<float, float>(coordinates);
+        currentNode_->next_ = prev_head;
+    }
+    while(currentNode_->next_ != nullptr) {
+        Node *temp = currentNode_;
+        currentNode_ = currentNode_->next_;
+        currentNode_->prev_ = temp;
+    }
+    // printf("Finished Reading...\n");
+    // std::cout << currentNode_->_names->data()<< std::endl;
+    // std::cout << currentNode_->_coordinate->first<< std::endl;
+    // std::cout << currentNode_->_coordinate->second<< std::endl;
+}
+
+// ____________________________________________________________________________
+void HeatMap::computeHeatMap() {
+    Movetohead();
+    // getMax();
+    // Movetohead();
+    // getMin();
+    // Movetohead();
+    // std::cout << max_x << ", " << max_y << std::endl;
+    // std::cout << min_x << ", " << min_y << std::endl;
+    while(currentNode_->next_ != nullptr) {
+        float temp_x = currentNode_->_coordinate->first;
+        float temp_y = currentNode_->_coordinate->second;
+        temp_x = get_x(temp_x, MAX_SIZE_);
+        temp_y = get_y(temp_y, MAX_SIZE_, MAX_SIZE_);
+        int new_x = static_cast<int>(temp_x);
+        int new_y = static_cast<int>(temp_y);
+        // std::cout << new_x << ", " << new_y << " ";
+        // new_x = new_x * 10;
+        // new_y = new_y * 2;
+        currentNode_->_coordinate->first = new_x;
+        currentNode_->_coordinate->second = new_y;
+        // int temp = (*MapPtr_)[new_x][new_y];
+        (*MapPtr_)[new_x][new_y]++;
+        // std::cout << currentNode_->_coordinate->first << ", " 
+        // << currentNode_->_coordinate->second << std::endl;
+        currentNode_ = currentNode_->next_;
+  }
+    // std::cout << "finished Linear Transformation!!" << std::endl;
+}
+
+// ____________________________________________________________________________
+void HeatMap::drawHeatMap(TerminalManager* tm) {
+    // std::cout << (*MapPtr_)[500][536] << std::endl;
+    double MaxInt = (*MapPtr_)[0][0];
+    for (int row = 0; row < MAX_SIZE_; ++row) {
+        for (int col = 0; col < MAX_SIZE_; ++col) {
+            // std::cout << MaxInt << std::endl;
+            if ((*MapPtr_)[row][col] > MaxInt) {
+            // std::cout << (*MapPtr_)[row][col] << std::endl;
+            MaxInt = (*MapPtr_)[row][col];
+            }
+        }
+    }
+    std::cout << MaxInt << std::endl;
+    sleep(2);
+    for (int row = 0; row < MAX_SIZE_; ++row) {
+        for (int col = 0; col < MAX_SIZE_; ++col) {
+            float Intense = ((*MapPtr_)[row][col] / MaxInt);
+            (*tm).drawPixel(row, col, true, Intense);
+            (*tm).refresh();
+            // (*tm).drawPixel(row, col, true, Intense);
+            // (*tm).refresh();
+            // std::cout << Intense << std::endl;
+            // tm.drawString(500, 500, "this", 1);
+        }
+    }
+    sleep(3);
+}
+

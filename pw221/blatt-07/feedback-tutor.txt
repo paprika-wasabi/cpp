@@ -1,0 +1,47 @@
+Korrektur Übungsblatt 7
+=======================
+
+
+Aufgabe 1
+---------
+Move-Constructor:
+delete[] data_ ist nicht nötig, da das Objekt gerade ja erstellt wird und data_
+noch leer ist.
+
+Bitte Teste nicht mehrere Methoden in einer Testfunktion (Sort). Mache für jede
+Methode, die du testest, eine eigene Testfunktion.
+
+Zur Funktions-Benennung:
+Wir benutzen camel-Case:
+Nicht q_sortwithcopy, sondern
+quickSortWithCopy.
+Und auf dem Blatt stand sogar explizit, dass es sortWithCopy heißen soll (-1)
+14/15
+
+
+Aufgabe 2
+---------
+  "Ich habe input.txt von AlgoDat Vorlesung aufgenohmen, um Benchmark zu
+  implementieren."
+Tut mir leid aber ich muss die Punkte abziehen, da das auf dem Blatt extra so
+verlangt wurde.
+String-Erstellung nicht implementiert (-2)
+
+  "Problem:
+  wenn ich mit dem quick sort aufrufe und gebe 10,000 Elements ein.
+  Program terminiert sich nicht. passiert nur mit QuickSort implementation.
+  aber mit 1000 Elents läuft es fehler frei durch. 
+  vielleicht ist die Benchmark-Elements zu groß."
+Ja, es kann sein, da das ineffiziente sortieren dafür einfach sehr lange
+braucht. Deswegen stand ja auf dem Blatt, dass die Längen so gewählt werden
+sollen, dass die Zeit, die es braucht sinvoll lang ist.
+3/5
+
+
+Gesamtpunktzahl
+---------------
+17/20
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

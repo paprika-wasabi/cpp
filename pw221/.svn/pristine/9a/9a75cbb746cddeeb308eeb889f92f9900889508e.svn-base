@@ -1,0 +1,10 @@
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 25.06.22.
+//
+
+Mit Implementierung von dynamische Array macht es mehr komplizierter als letzte Woche.
+Hab ich ungefaehr 7 bei ersten Aufgabe. 4 Studen wurde gebraucht, um alle allocate Memory freizugeben.
+erst mal hatte ich nur erte Node freigegenben. aber man muss alle Node noch wieder besuchen und freigeben.
+Ich verstehe leider noch nicht, warum mit Methode Bit Operation das Program schneller macht.

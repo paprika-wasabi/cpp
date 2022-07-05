@@ -1,0 +1,20 @@
+/* Copyright 2022 */
+//  HeatMapMain.cpp
+//  Clang
+//
+//  Created by Paramie Willmann on 30.06.22.
+//
+
+#include "./HeatMap.h"
+#include <string>
+#include <string_view>
+#include <iostream>
+#include <fstream>
+
+int main(){
+  TerminalManager tm;
+  HeatMap hm;
+  hm.readPointsFromFile("osm-switzerland.tsv");
+  hm.computeHeatMap();
+  hm.drawHeatMap(&tm);
+}
