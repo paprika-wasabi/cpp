@@ -61,9 +61,9 @@ class HeatMap {
     // Draw all pixel according to Intensity.
     void drawHeatMap(TerminalManager* tm);
     // Method to help test.
-    std::pair<float, float> getLastPair();
-    std::pair<float, float> getFirstPair();
-    float getMaxInt() { return MaxInt_; }
+    const std::pair<float, float> getLastPair();
+    const std::pair<float, float> getFirstPair();
+    const float getMaxInt() { return MaxInt_; }
 };
 
 #endif  //  HEATMAP_H_

@@ -168,7 +168,7 @@ void HeatMap::drawHeatMap(TerminalManager* tm) {
 }
 
 // ____________________________________________________________________________
-std::pair<float, float> HeatMap::getFirstPair() {
+const std::pair<float, float> HeatMap::getFirstPair() {
     while (currentNode_->next_ != nullptr) {
         currentNode_ = currentNode_->next_;
     }
@@ -179,7 +179,7 @@ std::pair<float, float> HeatMap::getFirstPair() {
 }
 
 // ____________________________________________________________________________
-std::pair<float, float> HeatMap::getLastPair() {
+const std::pair<float, float> HeatMap::getLastPair() {
     Movetohead();
     float x = currentNode_->_coordinate->first;
     float y = currentNode_->_coordinate->second;
