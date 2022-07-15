@@ -8,6 +8,7 @@
 #ifndef MOCKTERMINALMANAGER_H_
 #define MOCKTERMINALMANAGER_H_
 
+#include <vector>
 #include "./TerminalManager.h"
 
 class MockTerminalManager : public TerminalManager {
@@ -28,11 +29,15 @@ class MockTerminalManager : public TerminalManager {
     int Row_;
     int Col_;
     // Pointer Point to field of float and bool.
-    float *gridIntensity_;
-    bool *gridBool_;
+    // float *gridIntensity_;
+    // bool *gridBool_;
+    std::vector<std::vector<float>> fieldFloat_;
+    std::vector<std::vector<bool>> fieldBool_;
 };
 
 class NcursesTerminalManager : public TerminalManager {
+ public:
+    NcursesTerminalManager() { TerminalManager();}
 };
 
 #endif  // MOCKTERMINALMANAGER_H_
