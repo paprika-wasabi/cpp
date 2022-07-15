@@ -66,6 +66,8 @@
         "cwchar": "cpp",
         "cwctype": "cpp",
         "memory": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "__hash_table": "cpp",
+        "unordered_map": "cpp"
     }
 }
