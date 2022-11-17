@@ -1,0 +1,9 @@
+//  erfahrungen.txt
+//  Clang
+//
+//  Created by Paramie Willmann on 26.07.22.
+//
+
+Ich habe die Implementierung von Nerdle schon angefangt.
+(Siehe Projekt_1)
+Ich bin gern für Feedback von Projekt_1, wenn du etwas kommentieren darfst.

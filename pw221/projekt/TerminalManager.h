@@ -1,0 +1,54 @@
+/* Copyright 2022 */
+//  TerminalManager.h
+//  Clang
+//
+//  Created by Paramie Willmann on 18.07.22.
+//  Implementation of Parents class for TerminalManager.
+//  Virtual Class, which hold no Implementations of method.
+
+#ifndef TERMINALMANAGER_H_
+#define TERMINALMANAGER_H_
+
+#include <cstddef>
+#include <string>
+
+// Class for the input from the user.
+class UserInput {
+ public:
+  bool isKeyUp();
+  bool isKeyDown();
+  bool isKeyLeft();
+  bool isKeyRight();
+  // The code of the key pressed.
+  int keycode_;
+  // Was the event a mousecklick.
+  bool isMouseclick_;
+  // If the event was a mousecklick, then the coordinates
+  // of the mouseclick are stored here.
+  int mouseX_ = -1;
+  int mouseY_ = -1;
+};
+
+class TerminalManager {
+ public:
+    virtual ~TerminalManager() { }
+    virtual void drawPixel(int row, int col, bool inverse, int color) = 0;
+    virtual void drawString(int row, int col,
+                            const char* output, int color) = 0;
+    virtual void drawGrayBox(int row, int col, bool draw) = 0;
+    virtual void drawGreenBox(int row, int col, bool draw,
+                              const char* output) = 0;
+    virtual void drawBlackBox(int row, int col, bool draw,
+                              const char* output) = 0;
+    virtual void drawPurpleBox(int row, int col, bool draw,
+                               const char* output) = 0;
+    virtual void drawCursor(int row, int col) = 0;
+    virtual void deleteCursor(int row, int col) = 0;
+    virtual void deleteChar(int row, int col) = 0;
+    virtual void refresh() = 0;
+    virtual int numRows() const = 0;
+    virtual int numCols() const = 0;
+    virtual UserInput getUserInput() = 0;
+};
+
+#endif  // TERMINALMANAGER_H_

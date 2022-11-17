@@ -1,0 +1,57 @@
+/* Copyright 2022 */
+//  Nerdle.h
+//  Clang
+//
+//  Created by Paramie Willmann on 20.07.22.
+//
+
+// Implementation of Clone Nerdle with cpp.
+
+#ifndef NERDLE_H_
+#define NERDLE_H_
+
+#include "./TerminalManager.h"
+#include <vector>
+
+class Nerdle {
+ public:
+    // Initialize the game by random generates equation.
+    Nerdle();
+
+    // Play the game.
+    void play(TerminalManager* tm);
+
+ private:
+    // Initialize default board.
+    void drawBoard(TerminalManager* tm);
+
+    // if the given equation is mathematically correct.
+    // then return True.
+    bool ifCompute();
+
+    // compute the given input according to Nerdle Logic.
+    void compute();
+
+    // update state of Board after valid input.
+    void updateBoard(TerminalManager* tm);
+
+    // read all input from Users.
+    void readInputFromUser(TerminalManager* tm);
+
+    // move cursor using arrow key.
+    void moveCursor(TerminalManager* tm, UserInput userInput);
+
+    // store dimension of the screen.
+    int Col_;
+    int Row_;
+
+    // store position of cursor.
+    int X_ = 0;
+    int Y_ = 0;
+    std::vector<std::vector<std::pair<int, int>>> fieldCor_;
+
+    // check if GameOver.
+    bool GameOver_ = false;
+};
+
+#endif  // NERDLE_H_

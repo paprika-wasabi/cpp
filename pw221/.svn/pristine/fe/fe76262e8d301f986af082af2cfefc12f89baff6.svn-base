@@ -1,0 +1,22 @@
+Korrektur Übungsblatt 10
+========================
+
+
+Aufgabe 1
+---------
+Die Abgabe sieht sehr gut aus.
+
+MockTerminalManager:
+Variablen sollen nach lowerCamelCase benannt werden, also
+row_ und nicht Row_.
+
+fieldFloat_ und fieldBool_ sind zwar im lowerCamelCase aber die Benennung könnte
+etwas passender sein. Vielleicht fieldIntensity_, fieldInverse_
+
+Das ist aber Meckern auf hohem Niveau!
+20/20
+
+
+Gesamtpunktzahl
+---------------
+20/20

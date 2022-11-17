@@ -1,0 +1,33 @@
+Korrektur Übungsblatt 9
+=======================
+
+
+Aufgabe 1
+---------
+Ich empfehle die STL zu benutzen (z.B.: vector), damit du nicht selbst dich um
+Speicher kümmern musst. new und delete sorgen schnell für Fehler.
+
+Skalierung ist nicht an Terminalgröße angepasst. (-2)
+Karte um 90° rotiert. (-1)
+Speicherfehler führen zu Segmentation-Faults. (-3)
+
+Der _ sollte hinter dem Namen sein (_coordinate)
+
+Tests sollten etwas ausführlicher sein.
+9/15
+
+
+Aufgabe 2
+---------
+Die while-Schleife, die auf 'q' wartet sollte hier in der Main sein.
+(siehe Übungsblatt)
+4/5
+
+
+Gesamtpunktzahl
+---------------
+13/20
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de

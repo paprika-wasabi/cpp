@@ -1,0 +1,18 @@
+/* Copyright 2022 */
+//  NerdleMain.cpp
+//  Clang
+//
+//  Created by Paramie Willmann on 20.07.22.
+//
+
+// DriverCode for Nerdle.
+
+#include "./Nerdle.h"
+#include "./NcursesTerminalManager.h"
+#include <unistd.h>
+
+int main() {
+    NcursesTerminalManager tm;
+    Nerdle Game;
+    Game.play(&tm);
+}

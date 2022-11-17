@@ -1,0 +1,110 @@
+/* Copyright 2022 */
+//  Nerdle.cpp
+//  Clang
+//
+//  Created by Paramie Willmann on 20.07.22.
+//
+
+// Implementation of Clone Nerdle with cpp.
+
+#include "./Nerdle.h"
+#include "./TerminalManager.h"
+#include <unistd.h>
+#include <string>
+#include <algorithm>
+#include <charconv>
+
+// ____________________________________________________________________________
+Nerdle::Nerdle() {
+    fieldCor_.resize(8);
+    for (std::vector<std::pair<int, int>>& rowCor : fieldCor_) {
+        rowCor.resize(6);
+    }
+    // to do: gernerate random equation hold up to 8 char.
+}
+
+// ____________________________________________________________________________
+void Nerdle::play(TerminalManager* tm) {
+    drawBoard(tm);
+    while (!GameOver_) {
+        // tm->drawCursor(fieldCor_[Y_][X_].first, fieldCor_[Y_][X_].second, true);
+        readInputFromUser(tm);
+        tm->refresh();
+    }
+}
+
+// ____________________________________________________________________________
+void Nerdle::drawBoard(TerminalManager* tm) {
+    Col_ = tm->numCols();
+    Row_ = tm->numRows();
+    for (int row = 0; row < Row_; ++row) {
+        for (int col = 0; col < Col_; ++col) {
+            if (row == 0 || row == Row_ - 1 || col <= 0 || col >= Col_ - 1) {
+                tm->drawPixel(row, col, true, 1);
+            } else {
+                tm->drawPixel(row, col, false, 1);
+            }
+        }
+    }
+    // each box need 4 x 4 to compute if we need 8 boxes, 
+    // then 4 * 8 is size of for loop.
+    for (int RowStart = 4, rowGrid = 0; 
+             RowStart <= 24, rowGrid < 6; 
+             RowStart = RowStart + 4, ++rowGrid) {
+        for (int ColStart = (Col_ / 2) - 16, colGrid = 0; 
+                 ColStart < (Col_ / 2) + 16, colGrid < 8; 
+                 ColStart = ColStart + 4, ++colGrid) {
+            tm->drawGrayBox(RowStart, ColStart, true);
+            fieldCor_[rowGrid][colGrid] = std::make_pair(RowStart, ColStart);
+        }
+    }
+    tm->refresh();
+}
+
+// ____________________________________________________________________________
+void Nerdle::readInputFromUser(TerminalManager* tm) {
+    UserInput userInput;
+    userInput = (*tm).getUserInput();
+    moveCursor(tm, userInput);
+    switch (userInput.keycode_) {
+        case '0': {
+            tm->drawString(fieldCor_[Y_][X_].first,
+                           fieldCor_[Y_][X_].second, "0", 2);
+            tm->refresh();
+            break;
+        }
+        case '1': {
+            tm->drawString(fieldCor_[Y_][X_].first,
+                           fieldCor_[Y_][X_].second, "1", 2);
+            tm->refresh();
+            break;
+        }
+        case 'q': {
+            GameOver_ = true;
+            break;
+        }
+        default: {
+            break;
+        }
+    }
+}
+
+// ____________________________________________________________________________
+void Nerdle::moveCursor(TerminalManager* tm, UserInput userInput) {
+    int x = fieldCor_[Y_][X_].first;
+    int y = fieldCor_[Y_][X_].second;
+    tm->drawCursor(x, y);
+    if (userInput.isKeyRight()) {
+        tm->deleteCursor(x, y);
+        if (X_ != 7) {
+            X_ = X_ + 1;
+        }
+    }
+    if (userInput.isKeyLeft()) {
+        tm->deleteCursor(x, y);
+        if (X_ > 0) {
+            X_ = X_ - 1;
+        }
+    }
+    tm->refresh();
+}

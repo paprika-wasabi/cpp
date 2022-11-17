@@ -1,0 +1,38 @@
+Korrektur Übungsblatt 8
+=======================
+
+
+Aufgabe 1
+---------
+erase, lookup und insert sollten eine const Reference bekommen (const T&), um
+unnötiges kopieren zu vermeiden. (VL 7, Argumentenübergabe)
+lookup und size sind nicht const.
+(-2)
+8/10
+
+
+Aufgabe 2
+---------
+Du kannst auch einfach ein bool[256] statt einem int* verwenden, da die Größe
+des Arrays vor der Laufzeit bekannt ist und true/falls reicht, um zu
+kennzeichnen, ob das Element in Set ist.
+
+Laufzeit-Erklärung fehlt (-1)
+"Ich verstehe leider noch nicht,
+warum mit Methode Bit Operation das Program schneller macht."
+Hauptsächlich ist es schneller, da insert/ und lookup in O(1) statt in O(n)
+laufen. (Zugriffe wie elements[4] sind konstant, und es muss nicht über das
+ganze Feld iteriert werden.) Zustätzlich ist Bitshifting für Computer sehr
+effizient, weswegen das nochmal etwas schneller ist als die Arrays in deiner
+oder der Musterlösung.
+Wenn die Erklärung nicht klar ist, melde dich gerne nochmal.
+9/10
+
+
+Gesamtpunktzahl
+---------------
+17/20
+
+
+Bei Fragen schreibe mir eine Mail:
+janusc@cs.uni-freiburg.de
