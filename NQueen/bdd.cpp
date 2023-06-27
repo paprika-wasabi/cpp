@@ -40,7 +40,6 @@ void BDD::connect_false(Node *parent, bool if_true) {
 
 int BDD::count_true_path() const {
   /*TODO: Übungsblatt 9, Aufgabe 7*/
-  ASSERT(true);
   return 0;
 }
 
