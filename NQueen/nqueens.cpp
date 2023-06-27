@@ -22,16 +22,16 @@ void NQueens::construct_bdd() {
 
         if (successorBoard.is_full() || !successorBoard.is_valid()) {
             if (successor) {
-                bdd.connect_true(bdd.import_node(currentNode), true);
+                bdd.connect_true(currentNode, true);
             } else {
-                bdd.connect_false(bdd.import_node(currentNode), true);
+                bdd.connect_false(currentNode, true);
             }
         } else {
             successorNode = bdd.import_node(successorBoard);
             if (successor) {
-                bdd.connect_true(bdd.import_node(currentNode), true);
+                bdd.connect_true(currentNode, true);
             } else {
-                bdd.connect_false(bdd.import_node(currentNode), true);
+                bdd.connect_false(currentNode, true);
             }
             positionToProcess.push(successorNode);
         }
