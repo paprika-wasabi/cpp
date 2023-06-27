@@ -1,9 +1,6 @@
-#include <fstream>
 #include <stack>
 
 #include "nqueens.hpp"
-#include "board.hpp"
-#include "stack.hpp"
 
 // connect Node parent to its child (direction true or false) and pushing the
 // node to the stack if needed
