@@ -2,36 +2,6 @@
 
 #include "nqueens.hpp"
 
-// connect Node parent to its child (direction true or false) and pushing the
-// node to the stack if needed
-void NQueens::check_and_add_child(Node *parent, bool direction,
-                                  Stack<Node *> stack) {
-    //Board tempBoard(size);
-    //Node tempNode;
-//    if (direction) {
-//        //tempBoard.next(true);
-//        //tempNode = bdd.import_node(tempBoard);
-//    } else {
-//        //.next(false);
-//        //tempNode = bdd.import_node(tempBoard);
-//    }
-
-
-//    if (tempBoard.is_full() or !tempBoard.is_valid()) {
-//      if (direction) {
-//            bdd.connect_true(parent, direction);
-//       } else {
-//           bdd.connect_false(parent, direction);
-//        }
-//
-//    } else {
-//        //bdd.import_node(tempBoard);
-//        //stack.push(tempNode);
-//        //bdd.connect(parent, tempNode, direction);
-//    }
-
-}
-
 void NQueens::construct_bdd() {
   Stack<Node*> positionToProcess;
   Board initBoard(size);
@@ -41,7 +11,35 @@ void NQueens::construct_bdd() {
   while (!positionToProcess.empty()) {
     Node *currentNode = positionToProcess.top();
     positionToProcess.pop();
-    check_and_add_child(currentNode, 0, positionToProcess);
-    //check_and_add_child(currentNode, 1, positionToProcess);
+
+
+    Board tempBoardA(size);
+    Node tempNodeA;
+    Board tempBoardB(size);
+    Node tempNodeB;
+
+    tempBoardA.next(true);
+    tempNodeA = bdd.import_node(tempBoardA);
+
+    tempBoardB.next(false);
+    tempNodeB = bdd.import_node(tempBoardB);
+
+
+
+    if (tempBoardA.is_full() or !tempBoardA.is_valid()) {
+        bdd.connect_true(currentNode, true);
+    } else {
+        bdd.import_node(tempBoardA);
+        stack.push(tempNodeA);
+        bdd.connect(currentNode, tempNodeA, true);
+    }
+
+    if (tempBoardB.is_full() or !tempBoardB.is_valid()) {
+        bdd.connect_false(currentNode, false);
+    } else {
+        bdd.import_node(tempBoardB);
+        stack.push(tempNodeB);
+        bdd.connect(currentNode, tempNodeB, false);
+    }
   }
 }
