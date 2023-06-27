@@ -8,14 +8,14 @@
 // connect Node parent to its child (direction true or false) and pushing the
 // node to the stack if needed
 void NQueens::check_and_add_child(Node *parent, bool direction,
-                                  std::stack<Node *> &stack) {
+                                  Stack<Node *> &stack) {
   // NB: this is just a helper function I found useful to have, but
-  Board tempBoard;
+  Board *tempBoard;
     if (direction) {
-        tempBoard = *parent->if_true->get_configuration();
+        *tempBoard = *parent->if_true->get_configuration();
 
     } else {
-        tempBoard = *parent->if_false->get_configuration();
+        *tempBoard = *parent->if_false->get_configuration();
     }
 
     if (tempBoard.is_valid() or tempBoard.is_full()) {
