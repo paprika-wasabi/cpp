@@ -30,7 +30,7 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
 void NQueens::construct_bdd() {
   std::stack<Node*> positionToProcess;
   Board initBoard(size);
-  const Node* rootNode = new Node(0, initBoard);
+  Node *rootNode = new Node(0, initBoard);
   positionToProcess.push(*rootNode);
 
   while (!positionToProcess.empty()) {
