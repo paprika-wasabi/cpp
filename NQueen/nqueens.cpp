@@ -11,36 +11,30 @@ void NQueens::construct_bdd() {
   while (!positionToProcess.empty()) {
     Node *currentNode = positionToProcess.top();
     positionToProcess.pop();
+    for (bool successor : {true, false}) {
+        Node *successorNode = currentNode;
+        Board successorBoard = successorNode->get_configuration();
+        if (successor) {
+            successorBoard.next(true);
+        } else {
+            successorBoard.next(false);
+        }
 
-    Board tempBoardA(size);
-    Node *tempNodeA;
-    Board tempBoardB(size);
-    Node *tempNodeB;
-
-    tempBoardA.next(true);
-    tempNodeA = bdd.import_node(tempBoardA);
-
-    tempBoardB.next(false);
-    tempNodeB = bdd.import_node(tempBoardB);
-
-
-
-    if (tempBoardA.is_full() or !tempBoardA.is_valid()) {
-        bdd.connect_true(currentNode, true);
-        bdd.connect_true(currentNode, false);
-    } else {
-        bdd.import_node(tempBoardA);
-        positionToProcess.push(tempNodeA);
-        bdd.connect(currentNode, tempNodeA, true);
-    }
-
-    if (tempBoardB.is_full() or !tempBoardB.is_valid()) {
-        bdd.connect_false(currentNode, true);
-        bdd.connect_false(currentNode, false);
-    } else {
-        bdd.import_node(tempBoardB);
-        positionToProcess.push(tempNodeB);
-        bdd.connect(currentNode, tempNodeB, false);
+        if (successorBoard.is_full() || !successorBoard.is_valid()) {
+            if (successor) {
+                bdd.connect_true(bdd.import_node(currentNode), true);
+            } else {
+                bdd.connect_false(bdd.import_node(currentNode), true);
+            }
+        } else {
+            successorNode = bdd.import_node(successorBoard);
+            if (successor) {
+                bdd.connect_true(bdd.import_node(currentNode), true);
+            } else {
+                bdd.connect_false(bdd.import_node(currentNode), true);
+            }
+            positionToProcess.push(successorNode);
+        }
     }
   }
 }
