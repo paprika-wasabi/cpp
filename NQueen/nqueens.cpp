@@ -23,7 +23,7 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
 //        } else {
 //            bdd.connect_false(parent, direction);
 //        }
-        continue;
+
     } else {
         bdd.import_node(tempBoard);
         stack.push(tempNode);
