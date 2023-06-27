@@ -30,7 +30,7 @@ void NQueens::construct_bdd() {
         bdd.connect_true(currentNode, true);
     } else {
         bdd.import_node(tempBoardA);
-        stack.push(tempNodeA);
+        positionToProcess.push(tempNodeA);
         bdd.connect(currentNode, tempNodeA, true);
     }
 
@@ -38,7 +38,7 @@ void NQueens::construct_bdd() {
         bdd.connect_false(currentNode, false);
     } else {
         bdd.import_node(tempBoardB);
-        stack.push(tempNodeB);
+        positionToProcess.push(tempNodeB);
         bdd.connect(currentNode, tempNodeB, false);
     }
   }
