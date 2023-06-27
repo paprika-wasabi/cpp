@@ -21,8 +21,7 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
         bdd.import_node(tempBoard);
     } else {
         bdd.import_node(tempBoard);
-        Node *nextNode = new Node(0, tempBoard);
-        &stack.push(*parent);
+
     }
 
 }
@@ -30,13 +29,13 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
 void NQueens::construct_bdd() {
   std::stack<Node *> positionToProcess;
   Board initBoard(size);
-  positionToProcess.push(initBoard);
+  Node *rootNode = new Node(0, currentBoard);
+  positionToProcess.push(*rootNode);
 
   while (!positionToProcess.empty()) {
-    Board currentBoard = positionToProcess.top();
-    positionToProcess.pop();
-    Node *rootNode = new Node(0, currentBoard);
-    Board tempBoard = rootNode->if_true->get_configuration();
+    //Board currentBoard = positionToProcess.top();
+    //positionToProcess.pop();
+    //Board tempBoard = rootNode->if_true->get_configuration();
     //check_and_add_child(rootNode, 0, positionToProcess);
     //check_and_add_child(rootNode, 1, positionToProcess);
   }
