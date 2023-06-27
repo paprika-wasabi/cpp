@@ -18,11 +18,12 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
 
 
     if (tempBoard.is_full() or !tempBoard.is_valid()) {
-        if (direction) {
-            bdd.connect_true(parent, direction);
-        } else {
-            bdd.connect_false(parent, direction);
-        }
+//        if (direction) {
+//            bdd.connect_true(parent, direction);
+//        } else {
+//            bdd.connect_false(parent, direction);
+//        }
+        continue;
     } else {
         bdd.import_node(tempBoard);
         stack.push(tempNode);
@@ -40,7 +41,7 @@ void NQueens::construct_bdd() {
   while (!positionToProcess.empty()) {
     Node *workingNode = positionToProcess.top();
     positionToProcess.pop();
-    //check_and_add_child(workingNode, 0, positionToProcess);
-    //check_and_add_child(workingNode, 1, positionToProcess);
+    check_and_add_child(workingNode, 0, positionToProcess);
+    check_and_add_child(workingNode, 1, positionToProcess);
   }
 }
