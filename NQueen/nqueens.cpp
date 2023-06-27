@@ -12,7 +12,6 @@ void NQueens::construct_bdd() {
     Node *currentNode = positionToProcess.top();
     positionToProcess.pop();
 
-
     Board tempBoardA(size);
     Node *tempNodeA;
     Board tempBoardB(size);
@@ -28,6 +27,7 @@ void NQueens::construct_bdd() {
 
     if (tempBoardA.is_full() or !tempBoardA.is_valid()) {
         bdd.connect_true(currentNode, true);
+        bdd.connect_true(currentNode, false);
     } else {
         bdd.import_node(tempBoardA);
         positionToProcess.push(tempNodeA);
@@ -35,6 +35,7 @@ void NQueens::construct_bdd() {
     }
 
     if (tempBoardB.is_full() or !tempBoardB.is_valid()) {
+        bdd.connect_false(currentNode, true);
         bdd.connect_false(currentNode, false);
     } else {
         bdd.import_node(tempBoardB);
