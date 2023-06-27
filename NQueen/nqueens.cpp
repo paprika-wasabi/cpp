@@ -14,9 +14,9 @@ void NQueens::construct_bdd() {
 
 
     Board tempBoardA(size);
-    Node tempNodeA;
+    Node *tempNodeA;
     Board tempBoardB(size);
-    Node tempNodeB;
+    Node *tempNodeB;
 
     tempBoardA.next(true);
     tempNodeA = bdd.import_node(tempBoardA);
