@@ -9,10 +9,11 @@
 void NQueens::check_and_add_child(Node *parent, bool direction,
                                   std::stack<Node *> &stack) {
   // NB: this is just a helper function I found useful to have, but
+  Board tempBoard;
     if (direction) {
-        Board *tempBoard = *parent->if_true->get_configuration();
+        tempBoard = *parent->if_true->get_configuration();
     } else {
-        Board *tempBoard = *parent->if_false->get_configuration();
+        tempBoard = *parent->if_false->get_configuration();
     }
 
     if (tempBoard.is_valid() or tempBoard.is_full()) {
