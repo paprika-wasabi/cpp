@@ -20,7 +20,7 @@ private:
   // connect parent to its child (true or false depending on direction) and
   // pushing the node to the stack
   void check_and_add_child(Node *parent, bool direction,
-                           std::stack<Node *> &stack);
+                           Stack<Node *> &stack);
   int size;
   BDD bdd;
 };
