@@ -29,9 +29,9 @@ void NQueens::construct_bdd() {
         } else {
             successorNode = bdd.import_node(successorBoard);
             if (successor) {
-                bdd.connect_true(currentNode, true);
+                bdd.connect(currentNode, successorNode,true);
             } else {
-                bdd.connect_false(currentNode, true);
+                bdd.connect(currentNode, successorNode,false);
             }
             positionToProcess.push(successorNode);
         }
