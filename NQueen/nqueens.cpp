@@ -31,7 +31,7 @@ void NQueens::construct_bdd() {
   Stack<Node*> positionToProcess;
   Board initBoard(size);
   Node *rootNode = new Node(0, initBoard);
-  positionToProcess.push(*rootNode);
+  positionToProcess.push(rootNode);
 
   while (!positionToProcess.empty()) {
     //Board currentBoard = positionToProcess.top();
