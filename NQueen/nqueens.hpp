@@ -4,6 +4,7 @@
 #include <stack>
 
 #include "bdd.hpp"
+#include "stack.hpp"
 
 class NQueens {
 public:
