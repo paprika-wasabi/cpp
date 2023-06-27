@@ -28,7 +28,7 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
 }
 
 void NQueens::construct_bdd() {
-  std::stack<Node*> positionToProcess;
+  stack<Node*> positionToProcess;
   Board initBoard(size);
   Node *rootNode = new Node(0, initBoard);
   positionToProcess.push(*rootNode);
