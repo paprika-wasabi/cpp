@@ -8,7 +8,7 @@
 // connect Node parent to its child (direction true or false) and pushing the
 // node to the stack if needed
 void NQueens::check_and_add_child(Node *parent, bool direction,
-                                  Stack<Node *> &stack) {
+                                  Stack<Node *> stack) {
     Board tempBoard;
     Node *tempNode;
     if (direction) {
@@ -23,7 +23,7 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
         bdd.import_node(tempBoard);
     } else {
         bdd.import_node(tempBoard);
-        &stack.push(tempNode);
+        stack.push(tempNode);
     }
 
 }
