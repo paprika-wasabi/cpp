@@ -35,7 +35,7 @@ void NQueens::construct_bdd() {
   while (!positionToProcess.empty()) {
     Board currentBoard = positionToProcess.top()->get_configuration();
     positionToProcess.pop();
-    check_and_add_child(rootNode, 0, positionToProcess);
-    check_and_add_child(rootNode, 1, positionToProcess);
+    //check_and_add_child(rootNode, 0, positionToProcess);
+    //check_and_add_child(rootNode, 1, positionToProcess);
   }
 }

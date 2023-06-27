@@ -26,6 +26,8 @@ test: $(TEST_BINARIES)
 	./$$test || (echo "failed test $$test" && exit 255) \
 	done
 
+run:
+
 clean:
 	rm -f *Main *Test *.o
 
