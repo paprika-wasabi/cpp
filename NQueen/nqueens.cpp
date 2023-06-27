@@ -9,11 +9,11 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
     Board tempBoard(size);
     Node *tempNode;
     if (direction) {
-        tempBoard.next(true);
-        tempNode = bdd.import_node(tempBoard);
+        //tempBoard.next(true);
+        //tempNode = bdd.import_node(tempBoard);
     } else {
-        tempBoard.next(false);
-        tempNode = bdd.import_node(tempBoard);
+        //.next(false);
+        //tempNode = bdd.import_node(tempBoard);
     }
 
 
@@ -25,9 +25,9 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
 //        }
 
     } else {
-        bdd.import_node(tempBoard);
-        stack.push(tempNode);
-        bdd.connect(parent, tempNode, direction);
+        //bdd.import_node(tempBoard);
+        //stack.push(tempNode);
+        //bdd.connect(parent, tempNode, direction);
     }
 
 }
