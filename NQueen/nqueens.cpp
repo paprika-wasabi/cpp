@@ -9,11 +9,11 @@
 void NQueens::check_and_add_child(Node *parent, bool direction,
                                   std::stack<Node *> &stack) {
   // NB: this is just a helper function I found useful to have, but
-  Board *tempBoard;
+  Board tempBoard;
     if (direction) {
-        tempBoard = *parent->if_true->get_configuration();
+        tempBoard = parent->if_true->get_configuration();
     } else {
-        tempBoard = *parent->if_false->get_configuration();
+        tempBoard = parent->if_false->get_configuration();
     }
 
     if (tempBoard.is_valid() or tempBoard.is_full()) {
@@ -34,7 +34,7 @@ void NQueens::construct_bdd() {
   while (!positionToProcess.empty()) {
     Board currentBoard = positionToProcess.top();
     positionToProcess.pop();
-    Node* rootNode = new Node(0, currentBoard);
+    Node *rootNode = new Node(0, currentBoard);
     Board* tempBoard = rootNode->if_true->get_configuration();
     check_and_add_child(rootNode, 0, positionToProcess);
     check_and_add_child(rootNode, 1, positionToProcess);
