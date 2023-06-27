@@ -11,7 +11,6 @@ void NQueens::construct_bdd() {
   while (!positionToProcess.empty()) {
     Node *currentNode = positionToProcess.top();
     positionToProcess.pop();
-    std::cout << "here";
     for (bool successor : {true, false}) {
         Node *successorNode = currentNode;
         Board successorBoard = successorNode->get_configuration();
@@ -34,6 +33,7 @@ void NQueens::construct_bdd() {
             } else {
                 bdd.connect(currentNode, successorNode,false);
             }
+            std::cout << "here";
             positionToProcess.push(successorNode);
         }
     }
