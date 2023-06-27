@@ -11,16 +11,16 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
   // NB: this is just a helper function I found useful to have, but
   Board *tempBoard;
     if (direction) {
-        *tempBoard = *parent->if_true->get_configuration();
+        tempBoard = *parent->if_true->get_configuration();
     } else {
-        *tempBoard = *parent->if_false->get_configuration();
+        tempBoard = *parent->if_false->get_configuration();
     }
 
-    if (*tempBoard.is_valid() or tempBoard.is_full()) {
-        bdd.import_node(*tempBoard);
+    if (tempBoard.is_valid() or tempBoard.is_full()) {
+        bdd.import_node(tempBoard);
     } else {
-        bdd.import_node(*tempBoard);
-        stack.push(*tempBoard);
+        bdd.import_node(tempBoard);
+        stack.push(tempBoard);
     }
 
 }
