@@ -17,18 +17,18 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
     }
 
 
-    if (tempBoard.is_full() or !tempBoard.is_valid()) {
-//        if (direction) {
+//    if (tempBoard.is_full() or !tempBoard.is_valid()) {
+//      if (direction) {
 //            bdd.connect_true(parent, direction);
-//        } else {
-//            bdd.connect_false(parent, direction);
+//       } else {
+//           bdd.connect_false(parent, direction);
 //        }
-
-    } else {
-        //bdd.import_node(tempBoard);
-        //stack.push(tempNode);
-        //bdd.connect(parent, tempNode, direction);
-    }
+//
+//    } else {
+//        //bdd.import_node(tempBoard);
+//        //stack.push(tempNode);
+//        //bdd.connect(parent, tempNode, direction);
+//    }
 
 }
 
