@@ -41,7 +41,7 @@ void NQueens::construct_bdd() {
   while (!positionToProcess.empty()) {
     Node *currentNode = positionToProcess.top();
     positionToProcess.pop();
-    check_and_add_child(currentNode, 0, positionToProcess);
-    check_and_add_child(currentNode, 1, positionToProcess);
+    //check_and_add_child(currentNode, 0, positionToProcess);
+    //check_and_add_child(currentNode, 1, positionToProcess);
   }
 }
