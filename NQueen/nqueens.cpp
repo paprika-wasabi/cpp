@@ -22,7 +22,7 @@ void NQueens::check_and_add_child(Node *parent, bool direction,
     } else {
         bdd.import_node(tempBoard);
         Node *nextNode = new Node(0, tempBoard);
-        &stack.push(*nextNode);
+        &stack.push({nullptr});
     }
 
 }
